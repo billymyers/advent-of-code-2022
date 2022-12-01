@@ -1,5 +1,5 @@
 import os, re, os.path
-pattern = "^.*\.(exe|pdb)$"
+pattern = "^.*\.(exe|pdb|out)$"
 
 if __name__ == "__main__":
     for r, subdirs, files in os.walk(os.getcwd()):
