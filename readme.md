@@ -7,7 +7,7 @@ These are my solutions for the 2022 Advent of Code. The numbered folders indicat
 | Day | Language used |
 | --- | ------------- |
 |  01 | C# (script)   |
-|  02 | ???           |
+|  02 | [Google Sheets formulas](02/readme.md)           |
 |  03 | ???           |
 |  04 | ???           |
 |  05 | ???           |
