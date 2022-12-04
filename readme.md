@@ -9,7 +9,7 @@ These are my solutions for the 2022 Advent of Code. The numbered folders indicat
 |  01 | C# (script)   |
 |  02 | [Google Sheets formulas](02/readme.md)           |
 |  03 | Python |
-|  04 | ???           |
+|  04 | C++ |
 |  05 | ???           |
 |  06 | ???           |
 |  07 | ???           |
