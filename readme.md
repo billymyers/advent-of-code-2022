@@ -11,7 +11,7 @@ These are my solutions for the 2022 Advent of Code. The numbered folders indicat
 |  03 | Python |
 |  04 | C++ |
 |  05 | TypeScript (Deno) |
-|  06 | ???           |
+|  06 | Scratch 3 |
 |  07 | ???           |
 |  08 | ???           |
 |  09 | ???           |
