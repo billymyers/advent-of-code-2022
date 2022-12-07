@@ -5,6 +5,8 @@
 #include <sstream>
 #include <memory>
 #include <cstdint>
+#include <chrono>
+typedef std::chrono::high_resolution_clock Clock;
 
 using std::uint32_t;
 
@@ -21,9 +23,7 @@ void processCommand(std::string& cmd)
     {
         // ls lists out the files and directories contained within our directory
         if(token == "ls")
-        {
             break;
-        }
 
         // cd changes the directory
         if(!arg && token == "cd")
@@ -161,7 +161,7 @@ uint32_t partB(uint32_t diskSpace = 70000000, uint32_t requiredSpace = 30000000)
 {
     auto neededSpace = requiredSpace - (diskSpace - root.getFileSize());
     auto base = std::make_shared<Directory>(root);
-    uint32_t smallest;
+    uint32_t smallest = 0xffffffff;
     compareDirSize(base, smallest, neededSpace);
 
     return smallest;
@@ -169,6 +169,7 @@ uint32_t partB(uint32_t diskSpace = 70000000, uint32_t requiredSpace = 30000000)
 
 int main(void)
 {
+    auto start_tree = Clock::now();
     // Open the file
     std::ifstream in("input.txt");
     if(!in)
@@ -176,16 +177,25 @@ int main(void)
         std::cerr << "There was an error opening the input file." << std::endl;
         return 1;
     }
-
     processFile(in);
     in.close();
+    auto end_tree = Clock::now();
 
+    auto start_a = Clock::now();
     // Find all directories with maxsize=100000
     uint32_t resultA = partA(100000);
-
     std::cout << "Part A sum: " << resultA << std::endl;
+    auto end_a = Clock::now();
 
+    auto start_b = Clock::now();
     uint32_t smallestDir = partB(70000000, 30000000);
     std::cout << "Part B size: " << smallestDir << std::endl;
+    auto end_b = Clock::now();
+
+    std::cout << "Timings: \n";
+    std::cout << "\tTree:  " << std::chrono::duration_cast<std::chrono::nanoseconds>(end_tree - start_tree).count() << " ns\n";
+    std::cout << "\tA:     " << std::chrono::duration_cast<std::chrono::nanoseconds>(end_a - start_a).count() << " ns\n";
+    std::cout << "\tB:     " << std::chrono::duration_cast<std::chrono::nanoseconds>(end_b - start_b).count() << " ns\n";
+    std::cout << "\tTotal: " << std::chrono::duration_cast<std::chrono::nanoseconds>(end_b - start_tree).count() << " ns\n";
     return 0;
 }
