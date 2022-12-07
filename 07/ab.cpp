@@ -193,9 +193,9 @@ int main(void)
     auto end_b = Clock::now();
 
     std::cout << "Timings: \n";
-    std::cout << "\tTree:  " << std::chrono::duration_cast<std::chrono::nanoseconds>(end_tree - start_tree).count() << " ns\n";
-    std::cout << "\tA:     " << std::chrono::duration_cast<std::chrono::nanoseconds>(end_a - start_a).count() << " ns\n";
-    std::cout << "\tB:     " << std::chrono::duration_cast<std::chrono::nanoseconds>(end_b - start_b).count() << " ns\n";
-    std::cout << "\tTotal: " << std::chrono::duration_cast<std::chrono::nanoseconds>(end_b - start_tree).count() << " ns\n";
+    std::cout << "\tTree:  " << std::chrono::duration_cast<std::chrono::microseconds>(end_tree - start_tree).count() << " us\n";
+    std::cout << "\tA:     " << std::chrono::duration_cast<std::chrono::microseconds>(end_a - start_a).count() << " us\n";
+    std::cout << "\tB:     " << std::chrono::duration_cast<std::chrono::microseconds>(end_b - start_b).count() << " us\n";
+    std::cout << "\tTotal: " << std::chrono::duration_cast<std::chrono::microseconds>(end_b - start_tree).count() << " us\n";
     return 0;
 }
