@@ -168,7 +168,7 @@ uint32_t partB(uint32_t diskSpace = 70000000, uint32_t requiredSpace = 30000000)
 }
 
 int main(void)
-{   
+{
     // Open the file
     std::ifstream in("input.txt");
     if(!in)
@@ -178,16 +178,14 @@ int main(void)
     }
 
     processFile(in);
-    in.close();    
+    in.close();
 
     // Find all directories with maxsize=100000
-    uint32_t max_size = 100000;
-    uint32_t resultA = partA(max_size);
+    uint32_t resultA = partA(100000);
 
     std::cout << "Part A sum: " << resultA << std::endl;
 
     uint32_t smallestDir = partB(70000000, 30000000);
     std::cout << "Part B size: " << smallestDir << std::endl;
-
     return 0;
 }
